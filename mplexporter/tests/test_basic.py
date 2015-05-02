@@ -5,6 +5,8 @@ from ..exporter import Exporter
 from ..renderers import FakeRenderer, FullFakeRenderer
 from . import plt
 
+import pytest
+
 
 def fake_renderer_output(fig, Renderer):
     renderer = Renderer()
@@ -192,6 +194,7 @@ def test_legend():
                          """)
 
 
+@pytest.mark.xfail
 def test_legend_dots():
     fig, ax = plt.subplots()
     ax.plot([1, 2, 3], label='label')
